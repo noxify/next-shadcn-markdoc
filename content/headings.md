@@ -2,6 +2,13 @@
 title: Headings
 ---
 
+## Source
+
+* <https://ui.shadcn.com/docs/components/typography>
+
+## Code
+
+*
 
 ## Heading Level 2 ( 1 )
 

@@ -1,4 +1,4 @@
-import { Config, nodes as markdocNodes } from "@markdoc/markdoc"
+import { Config, Tag } from "@markdoc/markdoc"
 
 import { TypographyBlockquote } from "@/components/ui/blockquote"
 import { TypographyList } from "@/components/ui/list"
@@ -12,8 +12,9 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import Callout from "@/components/markdoc/callout"
+import { Code } from "@/components/markdoc/code"
 import Heading from "@/components/markdoc/heading"
-import { AdvancedList } from "@/components/markdoc/list"
+import { MarkdocTab, MarkdocTabs } from "@/components/markdoc/tabs"
 
 const config: Config = {
   nodes: {
@@ -44,6 +45,17 @@ const config: Config = {
     tr: { render: "TableRow" },
     tbody: { render: "TableBody" },
     td: { render: "TableCell" },
+    fence: {
+      render: "Code",
+      attributes: {
+        content: {
+          type: String,
+        },
+        language: {
+          type: String,
+        },
+      },
+    },
   },
   tags: {
     callout: {
@@ -55,12 +67,57 @@ const config: Config = {
         },
       },
     },
-    list: {
-      render: "AdvancedList",
+    orderedlist: {
+      render: "List",
       attributes: {
         ordered: { type: Boolean, required: false, default: true },
-        type: { type: String, required: false, default: "1" },
+        type: { type: String, required: false },
         start: { type: Number, required: false },
+      },
+      transform(node, config) {
+        const attributes = node.transformAttributes(config)
+        const children = node.transformChildren(config)
+
+        const elements = children[0] as any
+        if (children.length && elements?.name === "List") {
+          elements.attributes = attributes
+        }
+
+        return elements
+      },
+    },
+
+    tabs: {
+      render: "Tabs",
+      children: ["Tab"],
+      transform(node, config) {
+        const labels = node
+          .transformChildren(config)
+          .filter((child: any) => child && child.name === "Tab")
+          .map((tab: any) =>
+            typeof tab === "object" ? tab?.attributes?.label : null
+          )
+
+        const defaultValue = (
+          node
+            .transformChildren(config)
+            .filter((child: any) => child && child.name === "Tab")
+            .find((tab: any) => tab?.attributes?.default == true) as any
+        )?.attributes?.label
+
+        return new Tag(
+          this.render,
+          { labels, defaultValue },
+          node.transformChildren(config)
+        )
+      },
+    },
+
+    tab: {
+      render: "Tab",
+      attributes: {
+        label: { type: String, required: true },
+        default: { type: Boolean, required: false },
       },
     },
   },
@@ -72,13 +129,15 @@ const components = {
   Blockquote: TypographyBlockquote,
   Callout: Callout,
   List: TypographyList,
-  AdvancedList: AdvancedList,
   Table: Table,
   TableHead: TableHead,
   TableHeader: TableHeader,
   TableBody: TableBody,
   TableRow: TableRow,
   TableCell: TableCell,
+  Tabs: MarkdocTabs,
+  Tab: MarkdocTab,
+  Code: Code,
 }
 
 export { config, components }

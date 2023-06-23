@@ -1,11 +1,10 @@
 ---
 title: Paragraph
-toc: false
 ---
 
 ## Source
 
-* https://ui.shadcn.com/docs/components/typography#p
+* <https://ui.shadcn.com/docs/components/typography>
 
 ## Code
 

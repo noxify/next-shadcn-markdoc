@@ -1,3 +1,5 @@
+import { Theme } from "@code-hike/lighter"
+
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -28,4 +30,11 @@ export const siteConfig = {
       href: "/list",
     },
   ],
+  highlighter: {
+    theme: {
+      light: "github-light" as Theme,
+      dark: "github-dark" as Theme,
+    },
+    lineNumbers: true,
+  },
 }
