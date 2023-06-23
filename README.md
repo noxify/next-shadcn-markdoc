@@ -1,12 +1,4 @@
-# next-template
-
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
-
-## Usage
-
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+# NextJS w/ Markdoc & shadcn/ui
 
 ## Features
 
@@ -16,7 +8,13 @@ npx create-next-app -e https://github.com/shadcn/next-template
 - Icons from [Lucide](https://lucide.dev)
 - Dark mode with `next-themes`
 - Tailwind CSS class sorting, merging and linting.
+- shadcn/ui as component library
+- Markdoc
+
+## Credits
+
+The markdoc setup is based on https://github.com/dylanmeivis/nextjs13-starter-markdoc/tree/main
 
 ## License
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+Licensed under the [MIT license](LICENSE).
