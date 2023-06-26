@@ -14,11 +14,10 @@ export async function Code({
   const { lines, style: s } = await highlight(
     content.trimEnd(),
     language,
-
-    siteConfig.highlighter.theme.light
+    siteConfig.highlighter.theme
   )
 
-  const colors = await getThemeColors(siteConfig.highlighter.theme.light)
+  const colors = await getThemeColors(siteConfig.highlighter.theme)
 
   const { color, background } = s
 

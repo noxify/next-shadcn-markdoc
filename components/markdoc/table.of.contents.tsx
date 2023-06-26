@@ -57,7 +57,6 @@ function useActiveItem(itemIds: string[]) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log({ entry })
             setActiveId(entry.target.id)
           }
         })

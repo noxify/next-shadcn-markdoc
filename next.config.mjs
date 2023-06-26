@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   experimental: {
-    appDir: true,
-  },
+    serverComponentsExternalPackages: [ 'lucide-react' ]
+  }
 }
 
 export default nextConfig

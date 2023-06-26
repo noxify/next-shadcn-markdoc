@@ -5,8 +5,8 @@ toc: false
 
 ## Source
 
-* https://ui.shadcn.com/docs/components/tabs
-* https://markdoc.dev/docs/examples#tabs
+* <https://ui.shadcn.com/docs/components/tabs>
+* <https://markdoc.dev/docs/examples#tabs>
 
 ## Code
 
@@ -18,6 +18,14 @@ toc: false
 
 {% tabs %}
 
+{% tab label="Preview" %}
+preview content
+{% /tab %}
+
+{% tab label="Code" %}
+```md
+{% tabs %}
+
   {% tab label="Preview" %}
     preview content
   {% /tab %}
@@ -27,9 +35,21 @@ toc: false
   {% /tab %}
 
 {% /tabs %}
+```
+{% /tab %}
+
+{% /tabs %}
 
 ### with default tab
 
+{% tabs %}
+
+{% tab label="Preview" %}
+  preview content
+{% /tab %}
+
+{% tab label="Code" default=true %}
+```md
 {% tabs %}
 
   {% tab label="Preview" %}
@@ -39,5 +59,9 @@ toc: false
   {% tab label="Code" default=true %}
     code content
   {% /tab %}
+
+{% /tabs %}
+```
+{% /tab %}
 
 {% /tabs %}

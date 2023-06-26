@@ -29,12 +29,21 @@ export const siteConfig = {
       title: "List",
       href: "/list",
     },
+    {
+      title: "Tabs",
+      href: "/tabs",
+    },
+    {
+      title: "Codeblock",
+      href: "/codeblock",
+    },
+    {
+      title: "Accordion",
+      href: "/accordion",
+    },
   ],
   highlighter: {
-    theme: {
-      light: "github-light" as Theme,
-      dark: "github-dark" as Theme,
-    },
+    theme: "monokai" as Theme,
     lineNumbers: true,
   },
 }

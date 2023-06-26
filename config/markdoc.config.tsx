@@ -11,6 +11,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {
+  MarkdocAccordion,
+  MarkdocAccordionItem,
+} from "@/components/markdoc/accordion"
 import Callout from "@/components/markdoc/callout"
 import { Code } from "@/components/markdoc/code"
 import Heading from "@/components/markdoc/heading"
@@ -120,6 +124,22 @@ const config: Config = {
         default: { type: Boolean, required: false },
       },
     },
+
+    accordion: {
+      render: "Accordion",
+      children: ["AccordionItem"],
+      attributes: {
+        type: { type: String },
+        collapsible: { type: Boolean, required: false, default: false },
+      },
+    },
+
+    accordionitem: {
+      render: "AccordionItem",
+      attributes: {
+        title: { type: String, required: true },
+      },
+    },
   },
 }
 
@@ -138,6 +158,8 @@ const components = {
   Tabs: MarkdocTabs,
   Tab: MarkdocTab,
   Code: Code,
+  Accordion: MarkdocAccordion,
+  AccordionItem: MarkdocAccordionItem,
 }
 
 export { config, components }
