@@ -69,6 +69,10 @@ const config: Config = {
           type: String,
           default: "default title",
         },
+        type: {
+          type: String,
+          default: "default",
+        },
       },
     },
     orderedlist: {

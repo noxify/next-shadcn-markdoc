@@ -41,6 +41,10 @@ export const siteConfig = {
       title: "Accordion",
       href: "/accordion",
     },
+    {
+      title: "Callout / Alerts",
+      href: "/callout",
+    },
   ],
   highlighter: {
     theme: "monokai" as Theme,
