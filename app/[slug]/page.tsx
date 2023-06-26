@@ -45,7 +45,7 @@ function getNodeText(node: Node) {
   return text
 }
 
-export function collectHeadings(nodes: Node[], slugify = slugifyWithCounter()) {
+function collectHeadings(nodes: Node[], slugify = slugifyWithCounter()) {
   let sections: any[] = []
 
   for (let node of nodes) {
@@ -118,7 +118,7 @@ export default async function ContentPage({ params }: PageProps) {
   const tableOfContents = toc ? collectHeadings([content] as Node[]) : []
 
   return (
-    <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px] container">
+    <main className="container relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0">
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
           <div className="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -140,8 +140,8 @@ export default async function ContentPage({ params }: PageProps) {
       </div>
       {toc && (
         <div className="hidden text-sm xl:block">
-          <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] overflow-hidden pt-6 border-l ">
-            <ScrollArea className="pl-10 pb-10">
+          <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] overflow-hidden border-l pt-6 ">
+            <ScrollArea className="pb-10 pl-10">
               <TableOfContents toc={tableOfContents} />
             </ScrollArea>
           </div>

@@ -41,7 +41,7 @@ export default function Heading({ children, level, id }: HeadingProps) {
   return (
     <HeadingTag
       id={headerId}
-      className={cn(headingClass, "tracking-tight scroll-m-20 my-4")}
+      className={cn(headingClass, "my-4 scroll-m-20 tracking-tight")}
     >
       {children}
     </HeadingTag>
